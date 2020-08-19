@@ -41,34 +41,59 @@ namespace JurassicPark
                 Console.WriteLine("Summary");
                 Console.WriteLine("Quit");
 
+                // Menu Handling
+                var menu = Console.ReadLine();
+                switch (menu)
+                {
+                    case "v":
+                        if (dinoList.Any() == true)
+                        {
+
+                            foreach (var dino in dinoList)
+                            {
+                                Console.WriteLine(dino.Description());
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("The park is empty.");
+                        }
+                        break;
+                    case "a":
+                        // Add Functionality
+                        break;
+                    case "r":
+                        // Remove Functionality
+                        break;
+                    case "t":
+                        // Transfer Functionality
+                        break;
+                    case "s":
+                        // Summary Functionality
+                        break;
+                    case "q":
+                        closeProgram = "q";
+                        break;
+                    default:
+                        break;
+                }
+
                 // Test Dinosaur
-                var testDino = new Dinosaur();
-                testDino.Name = "George";
-                testDino.DietType = "herbivore";
-                testDino.Weight = 2000;
-                testDino.EnclosureNumber = 4;
-                dinoList.Add(testDino);
+                // var testDino = new Dinosaur();
+                // testDino.Name = "George";
+                // testDino.DietType = "herbivore";
+                // testDino.Weight = 2000;
+                // testDino.EnclosureNumber = 4;
+                // dinoList.Add(testDino);
 
                 // Call Description Method
                 // var classDescription = testDino.Description();
                 // Console.WriteLine(classDescription);
                 // View
-                if (dinoList.Any() == true)
-                {
-
-                    foreach (var dino in dinoList)
-                    {
-                        Console.WriteLine(dino.Description());
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("The park is empty.");
-                }
 
 
                 // Close Program
-                closeProgram = Console.ReadLine();
+                // closeProgram = Console.ReadLine();
 
 
             }
