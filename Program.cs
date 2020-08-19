@@ -61,6 +61,37 @@ namespace JurassicPark
                         break;
                     case "a":
                         // Add Functionality
+                        // Prompt for details
+
+                        // Prompt for Name
+                        Console.Write("Name: ");
+                        var name = Console.ReadLine();
+
+                        // Prompt for DietType
+                        Console.Write("Diet Type: ");
+                        var diet = Console.ReadLine();
+
+                        // Prompt for Weight
+                        Console.Write("Weight: ");
+                        var weightString = Console.ReadLine();
+                        var weight = int.Parse(weightString);
+
+                        // Prompt for EnclosureNumber
+                        Console.Write("Enclosure Number: ");
+                        var enclosureNumberString = Console.ReadLine();
+                        var enclosureNumber = int.Parse(weightString);
+
+                        // Make a Dinosaur
+                        var newDino = new Dinosaur()
+                        {
+                            Name = name,
+                            DietType = diet,
+                            Weight = weight,
+                            EnclosureNumber = enclosureNumber,
+                        };
+
+                        // Add Dinosaur to the List
+                        dinoList.Add(newDino);
                         break;
                     case "r":
                         // Remove Functionality
