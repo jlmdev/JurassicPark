@@ -2,6 +2,20 @@
 
 namespace JurassicPark
 {
+    // Dinosaur Class
+    class Dinosaur
+    {
+        public string Name { get; set; }
+        public string DietType { get; set; }
+        public DateTime WhenAcquired { get; set; } = DateTime.Now;
+        public int Weight { get; set; }
+        public int EnclosureNumber { get; set; }
+        public string Description()
+        {
+            var dinoDescription = ($"{Name} is a {Weight} pound {DietType} located in {EnclosureNumber} that arrived {WhenAcquired}");
+            return dinoDescription;
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -23,6 +37,18 @@ namespace JurassicPark
                 Console.WriteLine("Transfer");
                 Console.WriteLine("Summary");
                 Console.WriteLine("Quit");
+
+                // View
+                // Test Dinosaur
+                var testDino = new Dinosaur();
+                testDino.Name = "George";
+                testDino.DietType = "herbivore";
+                testDino.Weight = 2000;
+                testDino.EnclosureNumber = 4;
+
+                // Call Description Method
+                var classDescription = testDino.Description();
+                Console.WriteLine(classDescription);
 
 
                 // Close Program
