@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace JurassicPark
 {
@@ -23,8 +25,9 @@ namespace JurassicPark
             // Greeting
             Console.WriteLine("Welcome to Jurassic Park.\n\n");
 
-            // initialize variables
+            // initializers
             var closeProgram = "n";
+            var dinoList = new List<Dinosaur>();
 
             // While loop to continue program
             while (closeProgram != "q")
@@ -38,17 +41,30 @@ namespace JurassicPark
                 Console.WriteLine("Summary");
                 Console.WriteLine("Quit");
 
-                // View
                 // Test Dinosaur
                 var testDino = new Dinosaur();
                 testDino.Name = "George";
                 testDino.DietType = "herbivore";
                 testDino.Weight = 2000;
                 testDino.EnclosureNumber = 4;
+                dinoList.Add(testDino);
 
                 // Call Description Method
-                var classDescription = testDino.Description();
-                Console.WriteLine(classDescription);
+                // var classDescription = testDino.Description();
+                // Console.WriteLine(classDescription);
+                // View
+                if (dinoList.Any() == true)
+                {
+
+                    foreach (var dino in dinoList)
+                    {
+                        Console.WriteLine(dino.Description());
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("The park is empty.");
+                }
 
 
                 // Close Program
