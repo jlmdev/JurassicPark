@@ -14,7 +14,7 @@ namespace JurassicPark
         public int EnclosureNumber { get; set; }
         public string Description()
         {
-            var dinoDescription = ($"{Name} is a {Weight} pound {DietType} located in {EnclosureNumber} that arrived {WhenAcquired}");
+            var dinoDescription = ($"{Name} is a {Weight} pound {DietType} located in enclosure {EnclosureNumber} that arrived {WhenAcquired}");
             return dinoDescription;
         }
     }
@@ -155,6 +155,11 @@ namespace JurassicPark
                         break;
                     case "s":
                         // Summary Functionality
+                        var herbivores = dinoList.Count(dino => dino.DietType == "herbivore");
+                        var carnivores = dinoList.Count(dino => dino.DietType == "carnivore");
+                        Console.WriteLine($"Herbivores: {herbivores}");
+                        Console.WriteLine($"Carnivores: {carnivores}");
+
                         break;
                     case "q":
                         closeProgram = "q";
