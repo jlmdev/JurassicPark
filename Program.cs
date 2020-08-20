@@ -20,6 +20,16 @@ namespace JurassicPark
     }
     class Program
     {
+        static Dinosaur PromptAndFindDino(List<Dinosaur> DinoSearchList)
+        {
+            Console.Write("Name: ");
+            var nameOfDinoToSearchFor = Console.ReadLine();
+
+            // We need to find that dino by name from the list
+            var foundDino = DinoSearchList.FirstOrDefault(pet => pet.Name == nameOfDinoToSearchFor);
+
+            return foundDino;
+        }
         static void Main(string[] args)
         {
             // Greeting
@@ -79,7 +89,7 @@ namespace JurassicPark
                         // Prompt for EnclosureNumber
                         Console.Write("Enclosure Number: ");
                         var enclosureNumberString = Console.ReadLine();
-                        var enclosureNumber = int.Parse(weightString);
+                        var enclosureNumber = int.Parse(enclosureNumberString);
 
                         // Make a Dinosaur
                         var newDino = new Dinosaur()
@@ -95,9 +105,31 @@ namespace JurassicPark
                         break;
                     case "r":
                         // Remove Functionality
+                        var foundDino = PromptAndFindDino(dinoList);
+                        // Check if Dinosaur name matches any in the list
+                        if (foundDino != null)
+                        {
+                            // Show found Dinosaur
+                            Console.WriteLine(foundDino.Description());
+
+                            // Confirm choice
+                            Console.Write("Are you sure you want to remove? (y)es or (n)o ");
+                            var confirm = Console.ReadLine();
+
+                            if (confirm == "y")
+                            {
+                                dinoList.Remove(foundDino);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("There is no dinosaur by that name");
+                        }
+
                         break;
                     case "t":
                         // Transfer Functionality
+
                         break;
                     case "s":
                         // Summary Functionality
