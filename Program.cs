@@ -58,8 +58,8 @@ namespace JurassicPark
                     case "v":
                         if (dinoList.Any() == true)
                         {
-
-                            foreach (var dino in dinoList)
+                            var orderedList = dinoList.OrderBy(dino => dino.WhenAcquired);
+                            foreach (var dino in orderedList)
                             {
                                 Console.WriteLine(dino.Description());
                             }
