@@ -129,7 +129,29 @@ namespace JurassicPark
                         break;
                     case "t":
                         // Transfer Functionality
+                        var transferDino = PromptAndFindDino(dinoList);
+                        // Check if Dinosaur name matches any in the list
+                        if (transferDino != null)
+                        {
+                            // Show found Dinosaur
+                            Console.WriteLine(transferDino.Description());
 
+                            // Confirm choice
+                            Console.Write("Are you sure you want to move this dinosaur? (y)es or (n)o ");
+                            var confirm = Console.ReadLine();
+
+                            if (confirm == "y")
+                            {
+                                Console.Write("New enclosure: ");
+                                var newEnclosure = int.Parse(Console.ReadLine());
+
+                                transferDino.EnclosureNumber = newEnclosure;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("There is no dinosaur by that name.");
+                        }
                         break;
                     case "s":
                         // Summary Functionality
