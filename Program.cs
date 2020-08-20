@@ -25,8 +25,8 @@ namespace JurassicPark
             Console.Write("Name: ");
             var nameOfDinoToSearchFor = Console.ReadLine();
 
-            // We need to find that dino by name from the list
-            var foundDino = DinoSearchList.FirstOrDefault(pet => pet.Name == nameOfDinoToSearchFor);
+            // Find dino from the list that was input
+            var foundDino = DinoSearchList.FirstOrDefault(dino => dino.Name == nameOfDinoToSearchFor);
 
             return foundDino;
         }
@@ -155,8 +155,11 @@ namespace JurassicPark
                         break;
                     case "s":
                         // Summary Functionality
+                        // Get count of herbivores and carnivores
                         var herbivores = dinoList.Count(dino => dino.DietType == "herbivore");
                         var carnivores = dinoList.Count(dino => dino.DietType == "carnivore");
+
+                        // Output counts to screen
                         Console.WriteLine($"Herbivores: {herbivores}");
                         Console.WriteLine($"Carnivores: {carnivores}");
 
@@ -168,26 +171,8 @@ namespace JurassicPark
                         break;
                 }
 
-                // Test Dinosaur
-                // var testDino = new Dinosaur();
-                // testDino.Name = "George";
-                // testDino.DietType = "herbivore";
-                // testDino.Weight = 2000;
-                // testDino.EnclosureNumber = 4;
-                // dinoList.Add(testDino);
-
-                // Call Description Method
-                // var classDescription = testDino.Description();
-                // Console.WriteLine(classDescription);
-                // View
-
-
-                // Close Program
-                // closeProgram = Console.ReadLine();
-
 
             }
-
 
             // Say Goodbye
             Console.WriteLine("Goodbye.");
